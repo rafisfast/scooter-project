@@ -12,34 +12,33 @@ describe('scooter object', () => {
     expect(scooter.station).toBe(args[0])
     expect(scooter.user).toBe(args[1])
 
-  },
+  }),
   test('test serial', () => {
     // edit this to be a real test!
     
     expect(scooter.serial).toBeGreaterThanOrEqual(0)
     expect(scooter.serial).toBeLessThanOrEqual(1000)
 
-  },
+  }),
   test('test charge', () => {
     // edit this to be a real test!
     
     expect(scooter.charge).toBeGreaterThanOrEqual(0)
     expect(scooter.charge).toBeLessThanOrEqual(100)
 
-  },
+  }),
   test('test isbroken', () => {
     // edit this to be a real test!
     
     expect(scooter.isBroken).toBe(false)
 
-  },
+  }),
   test('test docked', () => {
     // edit this to be a real test!
     
     expect(scooter.docked).toBe(true)
 
-  }
-  )
+  })
 })
 
 const consoleSpy = jest.spyOn()
@@ -94,7 +93,7 @@ describe('dock', () => {
 describe('recharge', () => {
   // tests here!
 
-  test("checking is recharge works", ()=> {
+  test("checking is recharge works", async ()=> {
     await scooter.recharge()
     expect(consoleSpy).toBe("scooter has rechargred")
     expect(scooter.charge).toBe(100)
@@ -107,7 +106,7 @@ describe('recharge', () => {
 describe('requestRepair', () => {
   // tests here!
 
-  test("checking if repairing works", ()=> {
+  test("checking if repairing works", async ()=> {
     await scooter.requestRepair()
     expect(consoleSpy).toBe("repair has been completed")
     expect(scooter.isBroken).toBe(false)
