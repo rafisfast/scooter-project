@@ -62,9 +62,9 @@ describe('rent', () => {
   }),
 
   test("else ", ()=> {
-    scooter = new Scooter(scooter.user,scooter.station)
-    scooter.charge = 20;
-    scooter.rent()
+    nscooter = new Scooter(scooter.user,scooter.station)
+    nscooter.charge = 20;
+    nscooter.rent()
     expect(consoleSpy).toHaveBeenLastCalledWith("Scooter low on battery, please charge.")
   })
 

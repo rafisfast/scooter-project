@@ -42,8 +42,8 @@ describe("login", ()=> {
 
 describe("scooter", ()=> {
     test("adding and removing scooter", ()=> {
-        scooterapp.addScooter("Manhattan", scooter.serial)
-        scooterapp.RemoveScooter(scooter.serial)
+        scooterapp.addScooter("Manhattan", scooter)
+        scooterapp.RemoveScooter(scooter)
     })
 })
 
