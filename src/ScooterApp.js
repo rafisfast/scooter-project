@@ -25,7 +25,7 @@ class ScooterApp {
       return
     }
 
-    this.#registeredUsers[user] = {
+    this.#registeredUsers[user.username] = {
       "password" : user.password,
       "age" : user.age,
       "loggedIn": false,
