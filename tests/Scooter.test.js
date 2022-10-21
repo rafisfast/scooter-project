@@ -94,8 +94,7 @@ describe('recharge', () => {
   // tests here!
 
   test("checking is recharge works", async ()=> {
-    await scooter.recharge()
-    expect(consoleSpy).toHaveBeenLastCalledWith("scooter has rechargred")
+    expect(await scooter.recharge()).toBe(true)
     expect(scooter.charge).toBe(100)
   })
 
@@ -107,8 +106,7 @@ describe('requestRepair', () => {
   // tests here!
 
   test("checking if repairing works", async ()=> {
-    await scooter.requestRepair()
-    expect(consoleSpy).toHaveBeenLastCalledWith("repair has been completed")
+    expect(await scooter.requestRepair()).toBe(true)
     expect(scooter.isBroken).toBe(false)
   })
 

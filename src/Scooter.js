@@ -29,12 +29,14 @@ class Scooter{
     await new Promise(resolve => setTimeout(resolve, 2000));
     console.log("scooter has recharged");
     this.charge = 100;
+    return true
   }
 
   requestRepair = async () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
     console.log("repair has been completed");
     this.isBroken = false;
+    return true
   }
 
 }
