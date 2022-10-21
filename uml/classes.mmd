@@ -4,6 +4,9 @@ classDiagram
     ScooterApp --* User
 
     User -- Scooter: Rent
+    User -- Scooter: Dock
+    User -- Scooter: Request Repair
+    User -- Scooter: Recharge
 
     class Scooter {
         +string station
