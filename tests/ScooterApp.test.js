@@ -31,11 +31,11 @@ describe("register", ()=> {
 
 describe("login", ()=> {
     test("correct username and password", ()=> {
-        scooterapp.login(user.username, user.password)
+        scooterapp.logIn(user.username, user.password)
         expect(consoleSpy).toHaveBeenLastCalledWith("username has logged in")
     }),
     test("incorrect username and password", ()=> {
-        scooterapp.login(user.username, user.password + "her")
+        scooterapp.logIn(user.username, user.password + "her")
         expect(consoleSpy).toHaveBeenLastCalledWith("Username or password is incorrect.")
     })
 })
