@@ -1,0 +1,13 @@
+sequenceDiagram
+    User->>+ScooterApp: Register
+    ScooterApp->>+User: Successfully registered
+    User->>+ScooterApp: Login
+    ScooterApp->>+User: Successfully logged in
+    User->>+Scooter: Rent
+    Scooter->>+ScooterApp: RemoveScooter
+    User->>+Scooter: RepairScooter
+    Scooter->>+User: Succesfully repeaired
+    User->>+Scooter: Recharge
+    Scooter->>+User: Succesfully recharged
+    User->>+Scooter: Dock
+    Scooter->>+ScooterApp: addScooter
