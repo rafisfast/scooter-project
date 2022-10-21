@@ -12,7 +12,6 @@ class ScooterApp {
   }
 
   #scooterSessions = []
-
   #registeredUsers = {}
 
   register = (user) => {
@@ -50,17 +49,19 @@ class ScooterApp {
   addScooter = (location, scooter) => {
     scooter.station = location;
     this.#stations[location].push(scooter.serial);
+    this.#scooterSessions.push(scooter);
   }
 
   RemoveScooter = (scooterToRemove) => {
-    if (scooterToRemove >= 0 && scooterToRemove <= 1000) {
-      this.#stations.map((station, stationIndex) => {
+    if (scooterToRemove.serial >= 0 && scooterToRemove.serial <= 1000) {
+      Object.values(this.#stations).map((station, stationIndex) => {
         station.map((scooter, scooterIndex) => {
           if (scooter.serial === scooterToRemove) {
             delete this.#stations[stationIndex][scooterIndex];
           }
         })
       })
+      delete (this.#scooterSessions.findIndex((object)=> object === scooterToRemove))
     }
   }
 
