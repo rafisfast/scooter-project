@@ -1,12 +1,13 @@
 const Scooter = require('../src/Scooter')
 const User = require('../src/User')
 
-const scooter = new Scooter(args[0],args[1])
+const args = ["Manhattan", "raf"]
+const scooter = new Scooter(...args)
+
 //typeof scooter === object
 describe('scooter object', () => {
   test('test init', () => {
     // edit this to be a real test!
-    const args = ["Manhattan", "raf"]
     
     expect(scooter.station).toBe(args[0])
     expect(scooter.user).toBe(args[1])
