@@ -75,7 +75,7 @@ describe('dock', () => {
 
   test("no station provided ", ()=> {
     scooter.dock()
-    expect(consoleSpy).toBe("Docking station required!")
+    expect(consoleSpy).toHaveBeenLastCalledWith("Docking station required!")
   }),
 
   test("docking with station ", ()=> {
