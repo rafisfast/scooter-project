@@ -1,0 +1,36 @@
+classDiagram
+
+    ScooterApp --* Scooter 
+    ScooterApp --* User
+
+    User -- Scooter: Rent
+
+    class Scooter {
+        +string station
+        +string user
+        +number serial = Math.floor(Math.random()*1000)
+        +number charge = Math.floor(Math.random()*100)
+        +boolean isBroken = false
+        +boolean docked = true
+
+        +rent()
+        +dock(station)
+        +recharge()
+        +requestRepair()
+    }
+
+    class User {
+        -string username
+        -string password
+        -number age 
+    }
+
+    class ScooterApp {
+        +array stations
+        -array registeredUsers 
+
+        +register(user)
+        +logIn(username, password)
+        -addScooter(location,scooter)
+        +RemoveScooter(scooterToRemove)
+    }
