@@ -15,19 +15,17 @@ const consoleSpy = jest.spyOn(global.console,"log")
 
 describe("register", ()=> {
     test("register new user", ()=> {
-        scooterapp.register(user.username)
+        scooterapp.register(user)
         expect(consoleSpy).toHaveBeenLastCalledWith("user has been registered")
     }),
     test("register already existing user", ()=> {
-        scooterapp.register(user.username)
+        scooterapp.register(user)
         expect(consoleSpy).toHaveBeenLastCalledWith("already registered!")
     }),
     test("too young to register!", ()=> {
-        user.username = "newraf"
-        user.age = 16
-        scooterapp.register(user.username)
+        const n = new User("newraf","lol",16)
+        scooterapp.register(n)
         expect(consoleSpy).toHaveBeenLastCalledWith("too young to register!")
-        user.username = "raf"
     })
 })
 

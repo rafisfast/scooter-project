@@ -15,7 +15,7 @@ class ScooterApp {
 
   register = (user) => {
 
-    if (this.#registeredUsers[user]) {
+    if (this.#registeredUsers[user.username]) {
       console.log("already registered!")
       return
     }
