@@ -11,6 +11,8 @@ class ScooterApp {
     "StatenIsland":[]
   }
 
+  #scooterSessions = []
+
   #registeredUsers = {}
 
   register = (user) => {
