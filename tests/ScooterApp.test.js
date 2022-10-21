@@ -7,26 +7,26 @@ const s_args = ["Manhattan", "raf"]
 
 const scooterapp = new ScooterApp()
 const user    = new User(...u_args)
-const scooter = new scooter(...s_args)
+const scooter = new Scooter(...s_args)
 
 // ScooterApp tests here
 
-const consoleSpy = jest.spyOn()
+const consoleSpy = jest.spyOn(global.console,"log")
 
 describe("register", ()=> {
     test("register new user", ()=> {
         scooterapp.register(user.username)
-        expect(consoleSpy).toBe("user has been registered")
+        expect(consoleSpy).toHaveBeenLastCalledWith("user has been registered")
     }),
     test("register already existing user", ()=> {
         scooterapp.register(user.username)
-        expect(consoleSpy).toBe("already registered!")
+        expect(consoleSpy).toHaveBeenLastCalledWith("already registered!")
     }),
     test("too young to register!", ()=> {
         user.username = "newraf"
         user.age = 16
         scooterapp.register(user.username)
-        expect(consoleSpy).toBe("too young to register!")
+        expect(consoleSpy).toHaveBeenLastCalledWith("too young to register!")
         user.username = "raf"
     })
 })
@@ -34,11 +34,11 @@ describe("register", ()=> {
 describe("login", ()=> {
     test("correct username and password", ()=> {
         scooterapp.login(user.username, user.password)
-        expect(consoleSpy).toBe("username has logged in")
+        expect(consoleSpy).toHaveBeenLastCalledWith("username has logged in")
     }),
     test("incorrect username and password", ()=> {
         scooterapp.login(user.username, user.password + "her")
-        expect(consoleSpy).toBe("Username or password is incorrect.")
+        expect(consoleSpy).toHaveBeenLastCalledWith("Username or password is incorrect.")
     })
 })
 

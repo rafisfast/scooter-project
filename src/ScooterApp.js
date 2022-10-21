@@ -3,7 +3,7 @@ const Scooter = require('./Scooter')
 
 class ScooterApp {
   // ScooterApp code here
-   static #stations = {
+   #stations = {
     "Manhattan":[],
     "Brooklyn":[],
     "Queens":[],
@@ -11,7 +11,7 @@ class ScooterApp {
     "StatenIsland":[]
   }
 
-  static #registeredUsers = {}
+  #registeredUsers = {}
 
   register = (user) => {
 

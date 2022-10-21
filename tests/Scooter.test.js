@@ -4,6 +4,7 @@ const User = require('../src/User')
 const args = ["Manhattan", "raf"]
 const scooter = new Scooter(...args)
 
+const consoleSpy = jest.spyOn(global.console,"log")
 //typeof scooter === object
 describe('scooter object', () => {
   test('test init', () => {
@@ -41,7 +42,6 @@ describe('scooter object', () => {
   })
 })
 
-const consoleSpy = jest.spyOn()
 //Method tests
 describe('rent', () => {
   // tests here!
@@ -50,7 +50,7 @@ describe('rent', () => {
     scooter.charge = 21;
     scooter.docked = false;
     scooter.rent()
-    expect(consoleSpy).toBe("Enjoy the ride!")
+    expect(consoleSpy).toHaveBeenLastCalledWith("Enjoy the ride!")
   }),
   
   test("charge <= 20 & !isbroken & !docked", ()=> {
@@ -58,14 +58,14 @@ describe('rent', () => {
     scooter.charge = 20;
     scooter.docked = false;
     scooter.rent()
-    expect(consoleSpy).toBe("Scooter low on battery, please charge.")
+    expect(consoleSpy).toHaveBeenLastCalledWith("Scooter low on battery, please charge.")
   }),
 
   test("else ", ()=> {
     scooter = new Scooter(scooter.user,scooter.station)
     scooter.charge = 20;
     scooter.rent()
-    expect(consoleSpy).toBe("Scooter low on battery, please charge.")
+    expect(consoleSpy).toHaveBeenLastCalledWith("Scooter low on battery, please charge.")
   })
 
 })
@@ -95,7 +95,7 @@ describe('recharge', () => {
 
   test("checking is recharge works", async ()=> {
     await scooter.recharge()
-    expect(consoleSpy).toBe("scooter has rechargred")
+    expect(consoleSpy).toHaveBeenLastCalledWith("scooter has rechargred")
     expect(scooter.charge).toBe(100)
   })
 
@@ -108,7 +108,7 @@ describe('requestRepair', () => {
 
   test("checking if repairing works", async ()=> {
     await scooter.requestRepair()
-    expect(consoleSpy).toBe("repair has been completed")
+    expect(consoleSpy).toHaveBeenLastCalledWith("repair has been completed")
     expect(scooter.isBroken).toBe(false)
   })
 
