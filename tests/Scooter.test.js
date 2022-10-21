@@ -45,10 +45,10 @@ describe('scooter object', () => {
 //Method tests
 describe('rent', () => {
   // tests here!
-  test("!isbroken & charge > 20 & !docked", ()=> {
+  test("!isbroken & charge === 100 & docked", ()=> {
     scooter.isBroken = false;
-    scooter.charge = 21;
-    scooter.docked = false;
+    scooter.charge = 100;
+    scooter.docked = true;
     scooter.rent()
     expect(consoleSpy).toHaveBeenLastCalledWith("Enjoy the ride!")
   }),

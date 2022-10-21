@@ -9,7 +9,7 @@ class Scooter{
   }
 
   rent =() => {
-    if (!this.isBroken && this.charge > 20 && !this.docked) {
+    if (!this.isBroken && this.charge === 100 && this.docked) {
       console.log("Enjoy the ride!")
     } else if (this.charge <= 20) {
       console.log("Scooter low on battery, please charge.")
