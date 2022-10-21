@@ -47,7 +47,7 @@ class ScooterApp {
 
   addScooter = (location, scooter) => {
     scooter.station = location;
-    this.#stations.push(scooter.serial);
+    this.#stations[location].push(scooter.serial);
   }
 
   RemoveScooter = (scooterToRemove) => {
